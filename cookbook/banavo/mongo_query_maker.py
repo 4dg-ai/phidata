@@ -96,7 +96,7 @@ query_maker = Assistant(
 )
 
 # Simulating the Process
-question = "What is the percentage of the age group 18-24 years?"
+question = "What is the percentage of the age group Unknown?"
 query_response = ""
 
 # Generate a query using query_maker
@@ -104,7 +104,7 @@ for delta in query_maker.run(question):
     query_response += delta
 
 # Log the generated query
-print(f"Generated Query:\n{query_response}")
+#print(f"Generated Query:\n{query_response}")
 
 # Process the query response
 try:
@@ -128,7 +128,35 @@ try:
     else:
         raise ValueError("Unsupported query type or missing query data.")
 
-    print(f"Query Execution Result:\n{execution_result}")
+    #print(f"Query Execution Result:\n{execution_result}")
 
 except Exception as e:
     print(f"Error processing the query: {e}")
+
+llm_responder = Assistant(
+    name="llm_responder",
+    user_id="user",
+    llm=OpenAIChat(model="gpt-4o", temperature=0.3),
+    description=dedent(
+        """\
+        You are someone who conveys the results from mongo db queries in a way that users can understand."\
+        """
+    ),
+    instructions=[
+        "Understand the user's query: f{question}",
+        "Understand the corresponding response from mongo db: f{execution_result}",
+        "Respond to the user's query using the execution result in a way that humans can understand."
+    ],
+    show_tool_calls=True,
+    read_chat_history=True,
+    add_chat_history_to_messages=True,
+    num_history_messages=20,
+    markdown=True,
+    add_datetime_to_instructions=True,
+    additional_messages = [additional_message]
+)
+#print("main llm now")
+main_response = ""
+for delta in llm_responder.run(f"User query: {question}, response from mongo: {execution_result}. Please provide a suitable response."):
+    main_response += delta
+print(main_response)
