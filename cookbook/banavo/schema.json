@@ -521,95 +521,95 @@
                     }
                 }
             },
-            "orderLines": {
-                "type": "Array",
-                "description": "List of items included in the order",
-                "items": {
-                    "type": "Embedded Document",
-                    "fields": {
-                        "salesorderlineid": {
-                            "type": "NumberInt",
-                            "description": "Order line ID, from sales_salesorderlines.salesorderlineid"
-                        },
-                        "productId": {
-                            "type": "NumberInt",
-                            "description": "Product ID, from sales_salesorderlines.productid"
-                        },
-                        "sku": {
-                            "type": "String",
-                            "description": "Product SKU, from inventory_products.sku"
-                        },
-                        "productName": {
-                            "type": "String",
-                            "description": "Product name, from inventory_products.productname"
-                        },
-                        "articletypeid": {
-                            "type": "NumberInt",
-                            "description": "Article type ID, from inventory_products.articletypeid"
-                        },
-                        "articleTypeName": {
-                            "type": "String",
-                            "description": "Article type name, from inventory_mstarticletypes.name"
-                        },
-                        "quantity": {
-                            "type": "NumberInt",
-                            "description": "Quantity ordered, from sales_salesorderlines.qty"
-                        },
-                        "price": {
-                            "type": "NumberDecimal",
-                            "description": "Price per unit, from sales_salesorderlines.price"
-                        },
-                        "costPrice": {
-                            "type": "NumberDecimal",
-                            "description": "Cost price of the product, from inventory_products.costprice"
-                        },
-                        "margin": {
-                            "type": "NumberDecimal",
-                            "description": "Margin on the product, calculated as price - costPrice"
-                        },
-                        "discountAmount": {
-                            "type": "NumberDecimal",
-                            "description": "Discount amount on the product, from sales_salesorderlines.discountamt"
-                        },
-                        "vatAmount": {
-                            "type": "NumberDecimal",
-                            "description": "VAT amount for the product, from sales_salesorderlines.vatamount"
-                        },
-                        "totalNetAmount": {
-                            "type": "NumberDecimal",
-                            "description": "Total net amount for the line item, from sales_salesorderlines.totalnetamt"
-                        },
-                        "status": {
-                            "type": "String",
-                            "description": "Status of the line item, from sales_salesorderlines.status_name"
-                        },
-                        "departmentId": {
-                            "type": "NumberInt",
-                            "description": "Department ID associated with the product, from sales_salesorderlines.departmentid"
-                        },
-                        "warehouseId": {
-                            "type": "NumberInt",
-                            "description": "Warehouse ID from which the product will be shipped, from sales_salesorderlines.wmswarehouseid"
-                        },
-                        "serialNumber": {
-                            "type": "String",
-                            "description": "Serial number of the product, from sales_salesorderlines.serialnumber"
-                        },
-                        "returnable": {
-                            "type": "Boolean",
-                            "description": "Indicates if the product is returnable, from sales_salesorderlines.isreturnable"
-                        },
-                        "giftWrap": {
-                            "type": "Boolean",
-                            "description": "Indicates if gift wrap was selected, from sales_salesorderlines.isgiftwrap"
-                        },
-                        "personalization": {
-                            "type": "String",
-                            "description": "Personalization details, from sales_salesorderlines.personalization"
-                        }
-                    }
+    "orderLines": {
+        "type": "Array",
+        "description": "List of items included in the order",
+        "items": {
+            "type": "Embedded Document",
+            "fields": {
+                "salesorderlineid": {
+                    "type": "NumberInt",
+                    "description": "Order line ID, from sales_salesorderlines.salesorderlineid"
+                },
+                "productId": {
+                    "type": "NumberInt",
+                    "description": "Product ID, from sales_salesorderlines.productid"
+                },
+                "sku": {
+                    "type": "String",
+                    "description": "Product SKU, from inventory_products.sku"
+                },
+                "productName": {
+                    "type": "String",
+                    "description": "Product name, from inventory_products.productname"
+                },
+                "articletypeid": {
+                    "type": "NumberInt",
+                    "description": "Article type ID, from inventory_products.articletypeid"
+                },
+                "articleTypeName": {
+                    "type": "String",
+                    "description": "Article type name, from inventory_mstarticletypes.name"
+                },
+                "quantity": {
+                    "type": "NumberInt",
+                    "description": "Quantity ordered, from sales_salesorderlines.qty"
+                },
+                "price": {
+                    "type": "NumberDecimal",
+                    "description": "Price per unit, from sales_salesorderlines.price"
+                },
+                "costPrice": {
+                    "type": "NumberDecimal",
+                    "description": "Cost price of the product, from inventory_products.costprice"
+                },
+                "margin": {
+                    "type": "NumberDecimal",
+                    "description": "Margin on the product, calculated as price - costPrice"
+                },
+                "discountAmount": {
+                    "type": "NumberDecimal",
+                    "description": "Discount amount on the product, from sales_salesorderlines.discountamt"
+                },
+                "vatAmount": {
+                    "type": "NumberDecimal",
+                    "description": "VAT amount for the product, from sales_salesorderlines.vatamount"
+                },
+                "totalNetAmount": {
+                    "type": "NumberDecimal",
+                    "description": "Total net amount for the line item, from sales_salesorderlines.totalnetamt"
+                },
+                "status": {
+                    "type": "String",
+                    "description": "Status of the line item, from sales_salesorderlines.status_name"
+                },
+                "departmentId": {
+                    "type": "NumberInt",
+                    "description": "Department ID associated with the product, from sales_salesorderlines.departmentid"
+                },
+                "warehouseId": {
+                    "type": "NumberInt",
+                    "description": "Warehouse ID from which the product will be shipped, from sales_salesorderlines.wmswarehouseid"
+                },
+                "serialNumber": {
+                    "type": "String",
+                    "description": "Serial number of the product, from sales_salesorderlines.serialnumber"
+                },
+                "returnable": {
+                    "type": "Boolean",
+                    "description": "Indicates if the product is returnable, from sales_salesorderlines.isreturnable"
+                },
+                "giftWrap": {
+                    "type": "Boolean",
+                    "description": "Indicates if gift wrap was selected, from sales_salesorderlines.isgiftwrap"
+                },
+                "personalization": {
+                    "type": "String",
+                    "description": "Personalization details, from sales_salesorderlines.personalization"
                 }
-            },
+            }
+        }
+    },
             "discountDetails": {
                 "type": "Array",
                 "description": "Details of discounts applied to the order",
